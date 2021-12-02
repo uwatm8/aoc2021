@@ -17,6 +17,5 @@ ans = 0
 for i, a in enumerate(l):
     if(False):
         print(i, a)
-    pass
 
 print("answer: ", ans)

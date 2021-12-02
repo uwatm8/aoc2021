@@ -18,14 +18,23 @@ na = len(l)
 ans = 0
 prev = 1000000
 
-for i, a in enumerate(l):
+dy = 0
+dx = 0
 
-    if int(a) > prev:
-        ans = ans + 1
+for i, a2 in enumerate(l):
+    dir = a2.split(" ")[0]
+    dist = int(a2.split(" ")[1])
 
-    prev = int(a)
+    if dir == 'forward':
+        dy = dy + dist
+
+    if dir == 'down':
+        dx = dx + dist
+
+    if dir == 'up':
+        dx = dx - dist
+
     if(False):
         print(i, a)
-    pass
 
-print("answer: ", dy, dx)
+print("answer: ", dy*dx)

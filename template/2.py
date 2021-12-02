@@ -9,17 +9,13 @@ with open(filepath+str(dataSuffix)) as fp:
     while line:
         l.append(line.strip())
         line = fp.readline()
-nls = len(l)
 
+na = len(l)
 
 ans = 0
 
-for a in l:
-    pass;
-    
-for i in range(nls):
-    pass
-
-
+for i, a in enumerate(l):
+    if(False):
+        print(i, a)
 
 print("answer: ", ans)
