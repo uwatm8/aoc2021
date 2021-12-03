@@ -12,9 +12,6 @@ ols = ls
 
 ans = "0b"
 
-l = {}
-
-
 prefix = ""
 n1 = 0
 n0 = 0
@@ -80,4 +77,4 @@ print(prefix)
 
 f2 = prefix
 
-print("answer: ", f1, f2)
+print("answer: ", eval('0b'+f1+'*0b'+f2))

@@ -15,15 +15,10 @@ l = {}
 for i, a in enumerate(ls):
     for i2, c in enumerate(a):
         key = c+'-'+str(i2)
-
         if not key in l:
             l[key] = 1
-            print(l)
-
         else:
             l[key] += 1
-            print(l)
-    print("hej", l)
 
 
 for i in range(12):
@@ -32,13 +27,8 @@ for i in range(12):
 
     if('0-'+str(i) in l):
         n0 = l['0-'+str(i)]
-        print("n0", n0)
-
     if('1-'+str(i) in l):
         n1 = l['1-'+str(i)]
-        print("n1", n1)
-
-    print(n0, n1)
 
     if n0 > n1:
         ans += '0'
@@ -46,4 +36,6 @@ for i in range(12):
         ans += '1'
 
 
-print("answer: ", bin(eval(ans)), (bin(-1+2**12) ^ bin(eval(ans))))
+bans = bin(eval(ans))
+inverted = eval(bans + '^' + ('0b'+'1'*12))
+print("answer: ", eval(bans) * inverted)
