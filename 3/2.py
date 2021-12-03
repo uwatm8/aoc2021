@@ -1,5 +1,5 @@
 filepath = 'data'
-dataSuffix = 2
+dataSuffix = 1
 ls = []
 with open(filepath+str(dataSuffix)) as fp:
     line = fp.readline()
@@ -79,6 +79,5 @@ for j in range(len(ls[0])):
 print(prefix)
 
 f2 = prefix
-
 
 print("answer: ", f1, f2)

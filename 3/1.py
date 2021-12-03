@@ -12,8 +12,6 @@ ans = "0b"
 
 l = {}
 
-print(":(", l)
-
 for i, a in enumerate(ls):
     for i2, c in enumerate(a):
         key = c+'-'+str(i2)
@@ -48,4 +46,4 @@ for i in range(12):
         ans += '1'
 
 
-print("answer: ", ans)
+print("answer: ", bin(eval(ans)), (bin(-1+2**12) ^ bin(eval(ans))))
