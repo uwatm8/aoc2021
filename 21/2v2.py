@@ -29,7 +29,9 @@ drs = [1, 2, 3, 4]
 maxd = 0
 loops = 0
 doubles = 0
-end = 22
+end = 21
+nw1 = 0
+nw2 = 0
 
 while len(q):
     k = getKeys(q)[0]
@@ -53,15 +55,18 @@ while len(q):
             p2 += dr
             s2 += (p2-1) % 10 - 1
 
-        k = key(s1, s2, p1, p2, t)
 
         if s1 > end:
+            nw1 += 1
             w1 += times
             continue
 
         if s2 > end:
+            nw2 += 1
             w2 += times
             continue
+
+        k = key(s1, s2, p1, p2, t)
 
         if k in q:
             oo = q[k]
@@ -75,7 +80,7 @@ while len(q):
 
 print("loops", loops)
 print("doubl", doubles)
-print("answer: ", w1)
-print("answer: ", w2)
+print("answer: ", w1, nw1)
+print("answer: ", w2, nw2)
 print("answer: ", '444356092776315')
 print("answer: ", maxd)
