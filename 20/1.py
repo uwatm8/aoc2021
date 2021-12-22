@@ -47,8 +47,6 @@ def bva(x,y):
             i+=1
 
 
-    if not index:
-        return False
 
     return b[index] == '#'
 
@@ -71,7 +69,7 @@ def printq(i):
 for row in f:
     print(row)
 
-m = 2
+m = 7
 for i in range(2):
     ans = 0
     print("_____________")
@@ -90,9 +88,30 @@ for i in range(2):
                 row += '.'
         nf.append(row)
 
-
     f = nf
     for row in f:
         print(row)
 
-    print("answer: ", ans)
+ans = 0
+l = len(f)
+
+ll = 8
+
+for y in range(l):
+    row = ''
+    for x in range(l):
+        if x < ll or x >= l-ll-1 or y < ll or y >= l-ll-1:
+            row += '.'
+        else: 
+            row += f[y][x]
+
+            if f[y][x] == '#':
+                ans += 1
+
+    f[y] = row
+
+for row in f:
+    print(row)
+
+print(ans)
+    
