@@ -39,7 +39,7 @@ def n(p, depth):
 
             return x, ps
 
-    if depth == 4 and isinstance(x1, list):
+    if depth >= 4 and isinstance(x1, list):
         print("EXPLODE 1")
 
         lx, rx = x1
@@ -63,7 +63,7 @@ def n(p, depth):
 
         return x, ps
 
-    elif depth == 4 and isinstance(x2, list):
+    elif depth >= 4 and isinstance(x2, list):
         print("EXPLODE 2")
 
         ls, rs = ps.split(str(x2))[:2]
@@ -80,7 +80,7 @@ def n(p, depth):
 
         if isinstance(rx, list):
             ww = eval('['+str(lx)+', '+str(rx)+']')
-            print("SPECIAL", ww)
+            print("SPECIAL 2", ww)
             x, ps = n([ww, ps], depth+1)
 
             return x, ps

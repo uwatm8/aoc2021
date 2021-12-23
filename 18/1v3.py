@@ -19,17 +19,17 @@ def n(p, depth):
     x, ps = p
     x1, x2 = x
 
-    print("enter", x)
+    #print("enter", x)
 
     if str(x) not in ps:
-        print("RETURN")
         return x, ps
 
     nums = re.findall('[0-9]{2}', ps)
 
     for number in nums:
         number = int(number)
-        if number > 10:
+        print(number)
+        if number >= 10:
             # print("SPLIT")
 
             p1 = number // 2
@@ -39,13 +39,26 @@ def n(p, depth):
 
             return x, ps
 
-    if depth == 4 and isinstance(x1, list):
-        print("EXPLODE 1")
+    if depth >= 4 and isinstance(x1, list):
+        #print("EXPLODE 1")
 
         lx, rx = x1
 
-        ls, rs = ps.split(str(x1))
-        print("AAA", x)
+        ls, rs = ps.split(str(x1))[:2]
+
+        #print("AAA", x)
+
+        if isinstance(lx, list):
+            ww = eval('['+str(lx)+', '+str(rx)+']')
+            print("SPECIAL 1", ww)
+            x, ps = n([ww, ps], depth+1)
+
+            return x, ps
+
+        if isinstance(rx, list):
+            ww = eval('['+str(lx)+', '+str(rx)+']')
+            print("SPECIAL 2", ww)
+            x, ps = n([ww, ps], depth+1)
 
         w = re.findall('[0-9]+', ls)
         if len(w):
@@ -63,27 +76,27 @@ def n(p, depth):
 
         return x, ps
 
-    elif depth == 4 and isinstance(x2, list):
-        print("EXPLODE 2")
+    elif depth >= 4 and isinstance(x2, list):
+        #print("EXPLODE 2")
 
         ls, rs = ps.split(str(x2))[:2]
 
         lx, rx = x2
 
-        print("BBB", x)
+        #print("BBB", x)
         if isinstance(lx, list):
             ww = eval('['+str(lx)+', '+str(rx)+']')
-            print("SPECIAL 1", ww)
+            print("SPECIAL 3", ww)
             x, ps = n([ww, ps], depth+1)
 
-            return x, ps
+            return '@', ps
 
         if isinstance(rx, list):
             ww = eval('['+str(lx)+', '+str(rx)+']')
-            print("SPECIAL", ww)
+            print("SPECIAL 4", ww)
             x, ps = n([ww, ps], depth+1)
 
-            return x, ps
+            return '@', ps
 
         # print(len(ps.split(str(x2))))
 
@@ -120,7 +133,7 @@ def n(p, depth):
     if isinstance(x2, list):
         x, ps = n([x2, ps], depth+1)
 
-    print("RETURNING")
+    # print("RETURNING")
     return x, ps
 
 
